@@ -9,4 +9,11 @@
   lockFileMaintenance: {
     enabled: true,
   },
+  packageRules: [
+    {
+      // PyPI provides release timestamps, so require them
+      matchDatasources: ['pypi'],
+      minimumReleaseAgeBehaviour: 'timestamp-required',
+    },
+  ],
 }

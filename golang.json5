@@ -19,5 +19,10 @@
       matchManagers: ['gomod'],
       postUpdateOptions: ['gomodTidy'],
     },
+    {
+      // The Go module proxy provides release timestamps, so require them
+      matchDatasources: ['go'],
+      minimumReleaseAgeBehaviour: 'timestamp-required',
+    },
   ],
 }

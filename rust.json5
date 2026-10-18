@@ -7,6 +7,18 @@
     // Group updates to linters together in one PR
     'group:linters',
   ],
+  packageRules: [
+    {
+      // crates.io and GitHub releases provide release timestamps, so require them
+      matchDatasources: ['crate'],
+      minimumReleaseAgeBehaviour: 'timestamp-required',
+    },
+    {
+      matchDatasources: ['github-releases'],
+      matchDepNames: ['rust'],
+      minimumReleaseAgeBehaviour: 'timestamp-required',
+    },
+  ],
   customManagers: [
     {
       customType: 'regex',
