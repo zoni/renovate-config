@@ -4,6 +4,7 @@
   extends: [
     'config:best-practices',
     ':semanticCommitsDisabled',
+    'github>zoni/renovate-config:github-actions.json5',
   ],
   timezone: 'Europe/Amsterdam',
   labels: [

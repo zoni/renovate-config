@@ -1,0 +1,25 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  description: 'GitHub Actions workflows: grouped minor/patch updates, required release timestamps, no delay for own actions. Included by default.json5.',
+  packageRules: [
+    {
+      // Group non-breaking updates to workflow actions together in one PR
+      matchManagers: ['github-actions'],
+      matchUpdateTypes: ['minor', 'patch', 'digest', 'pin', 'pinDigest'],
+      groupName: 'GitHub Actions',
+    },
+    {
+      // github-tags provides release timestamps (tag or release date), so require them
+      matchManagers: ['github-actions'],
+      matchDatasources: ['github-tags'],
+      minimumReleaseAgeBehaviour: 'timestamp-required',
+    },
+    {
+      // Actions authored by zoni: bump immediately, no minimum release age.
+      // Must come after the rule above so it takes precedence.
+      matchManagers: ['github-actions'],
+      matchPackageNames: ['zoni/**'],
+      minimumReleaseAge: null,
+    },
+  ],
+}
