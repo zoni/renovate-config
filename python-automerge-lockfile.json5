@@ -1,0 +1,11 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  description: 'Automerge lock file maintenance for Python dependencies.',
+  packageRules: [
+    {
+      matchManagers: ['pep621', 'pip_requirements', 'poetry', 'pipenv', 'setup-cfg'],
+      matchUpdateTypes: ['lockFileMaintenance'],
+      automerge: true,
+    },
+  ],
+}

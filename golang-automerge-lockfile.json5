@@ -1,0 +1,11 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  description: 'Automerge lock file maintenance for Go dependencies.',
+  packageRules: [
+    {
+      matchManagers: ['gomod'],
+      matchUpdateTypes: ['lockFileMaintenance'],
+      automerge: true,
+    },
+  ],
+}

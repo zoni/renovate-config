@@ -1,0 +1,10 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  description: 'Automerge all updates, including majors and lock file maintenance, for Elixir dependencies.',
+  packageRules: [
+    {
+      matchManagers: ['mix'],
+      automerge: true,
+    },
+  ],
+}

@@ -1,19 +1,9 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  description: 'Rust projects',
-  extends: [
-    'github>zoni/renovate-config:default.json5',
-    'github>zoni/renovate-config:lockfile-automerge.json5',
-    // Group updates to linters together in one PR
-    'group:linters',
-  ],
+  description: 'Rust projects: also updates the toolchain in rust-toolchain.toml. Use together with default.json5.',
   packageRules: [
     {
-      // crates.io and GitHub releases provide release timestamps, so require them
-      matchDatasources: ['crate'],
-      minimumReleaseAgeBehaviour: 'timestamp-required',
-    },
-    {
+      // GitHub releases provide release timestamps, so require them
       matchDatasources: ['github-releases'],
       matchDepNames: ['rust'],
       minimumReleaseAgeBehaviour: 'timestamp-required',

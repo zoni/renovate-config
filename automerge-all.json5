@@ -1,0 +1,8 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  description: 'Automerge all updates, including lock file maintenance, for every ecosystem.',
+  automerge: true,
+  lockFileMaintenance: {
+    automerge: true,
+  },
+}

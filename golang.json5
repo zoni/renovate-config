@@ -1,28 +1,17 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  description: 'Go projects.',
-  extends: [
-    'github>zoni/renovate-config:default.json5',
-    // Group updates to linters together in one PR
-    'group:linters',
-  ],
-  lockFileMaintenance: {
-    enabled: true,
-  },
+  description: 'Go projects. Use together with default.json5.',
   packageRules: [
     {
+      // Renovate skips indirect Go dependencies by default; keep them current too
       matchManagers: ['gomod'],
       matchDepTypes: ['indirect'],
       enabled: true,
     },
     {
+      // Keep go.mod/go.sum tidy and rewrite import paths on major updates
       matchManagers: ['gomod'],
-      postUpdateOptions: ['gomodTidy'],
-    },
-    {
-      // The Go module proxy provides release timestamps, so require them
-      matchDatasources: ['go'],
-      minimumReleaseAgeBehaviour: 'timestamp-required',
+      postUpdateOptions: ['gomodTidy', 'gomodUpdateImportPaths'],
     },
   ],
 }

@@ -1,16 +1,36 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  description: 'Base settings shared by all repositories.',
+  description: 'Base settings shared by all repositories. Combine with language presets as needed.',
   extends: [
     'config:best-practices',
     ':semanticCommitsDisabled',
+    // Group updates to linters together in one PR
+    'group:linters',
     'github>zoni/renovate-config:github-actions.json5',
   ],
   timezone: 'Europe/Amsterdam',
   labels: [
     'dependencies',
   ],
-  dependencyDashboard: true,
   minimumReleaseAge: '5 days',
   minimumReleaseAgeBehaviour: 'timestamp-optional',
+  // Don't open PRs until minimumReleaseAge has passed
+  internalChecksFilter: 'strict',
+  packageRules: [
+    {
+      // config:best-practices sets npm to 3 days via security:minimumReleaseAgeNpm; restore our default
+      matchDatasources: ['npm'],
+      minimumReleaseAge: '5 days',
+    },
+    {
+      // These registries provide release timestamps, so require them
+      matchDatasources: ['crate', 'go', 'hex', 'pypi'],
+      minimumReleaseAgeBehaviour: 'timestamp-required',
+    },
+    {
+      // Update types without a meaningful release timestamp of their own (mirrors security:minimumReleaseAgeNpm)
+      matchUpdateTypes: ['lockFileMaintenance', 'replacement', 'pin', 'pinDigest', 'bump', 'lockfileUpdate', 'rollback'],
+      minimumReleaseAge: null,
+    },
+  ],
 }
