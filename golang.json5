@@ -1,0 +1,23 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  description: 'Go projects.',
+  extends: [
+    'github>zoni/renovate-config:default.json5',
+    // Group updates to linters together in one PR
+    'group:linters',
+  ],
+  lockFileMaintenance: {
+    enabled: true,
+  },
+  packageRules: [
+    {
+      matchManagers: ['gomod'],
+      matchDepTypes: ['indirect'],
+      enabled: true,
+    },
+    {
+      matchManagers: ['gomod'],
+      postUpdateOptions: ['gomodTidy'],
+    },
+  ],
+}

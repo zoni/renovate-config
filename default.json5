@@ -1,0 +1,15 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  description: 'Base settings shared by all repositories.',
+  extends: [
+    'config:best-practices',
+    ':semanticCommitsDisabled',
+  ],
+  timezone: 'Europe/Amsterdam',
+  labels: [
+    'dependencies',
+  ],
+  dependencyDashboard: true,
+  minimumReleaseAge: '5 days',
+  minimumReleaseAgeBehaviour: 'timestamp-optional',
+}

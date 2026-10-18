@@ -1,0 +1,12 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  description: 'Python projects.',
+  extends: [
+    'github>zoni/renovate-config:default.json5',
+    // Group updates to linters together in one PR
+    'group:linters',
+  ],
+  lockFileMaintenance: {
+    enabled: true,
+  },
+}

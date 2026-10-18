@@ -1,0 +1,9 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  description: 'Container image repositories: monthly updates with automerged lock file maintenance.',
+  extends: [
+    'github>zoni/renovate-config:default.json5',
+    'github>zoni/renovate-config:lockfile-automerge.json5',
+    'schedule:monthly',
+  ],
+}
