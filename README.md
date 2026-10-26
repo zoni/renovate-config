@@ -33,7 +33,7 @@ The `.json5` suffix is required: without it, Renovate looks for `<name>.json`.
 
 - `golang.json5`: updates indirect dependencies, runs `go mod tidy` and rewrites import paths on major updates.
 - `rust.json5`: updates the toolchain version in `rust-toolchain.toml`.
-- `python.json5`, `elixir.json5`: currently empty, since everything they need is in `default.json5`.
+- `python.json5`, `elixir.json5`, `javascript.json5` (JavaScript and TypeScript): currently empty, since everything they need is in `default.json5`.
   They exist so repositories can declare their language now and pick up future rules.
 - `container.json5`: monthly schedule with automerged lock file maintenance, for container image repositories.
 
@@ -44,7 +44,7 @@ The `.json5` suffix is required: without it, Renovate looks for `<name>.json`.
 - `<language>-automerge-all.json5`: automerge all updates, including majors, for one ecosystem.
   This is a superset of the `-lockfile` variant, so use one or the other.
 
-Available for `golang`, `python`, `rust` and `elixir`.
+Available for `golang`, `python`, `rust`, `elixir` and `javascript`.
 
 ## Validation
 

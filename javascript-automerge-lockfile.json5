@@ -1,0 +1,11 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  description: 'Automerge lock file maintenance for JavaScript and TypeScript dependencies.',
+  packageRules: [
+    {
+      matchManagers: ['npm', 'bun'],
+      matchUpdateTypes: ['lockFileMaintenance'],
+      automerge: true,
+    },
+  ],
+}
