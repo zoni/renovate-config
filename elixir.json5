@@ -1,4 +1,7 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  description: 'Elixir projects. Use together with default.json5. Currently empty: all Elixir settings live in default.json5.',
+  description: 'Elixir projects. Use together with default.json5. Most Elixir settings live in default.json5.',
+  extends: [
+    ':preserveSemverRanges',
+  ],
 }
